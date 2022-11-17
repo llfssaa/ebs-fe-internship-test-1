@@ -15,13 +15,11 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+    "eject": "react-scripts eject",
+    "prepare": "husky install",
+    "lint": "eslint ./src",
+    "lint:fix": "eslint ./src --fix",
+    "husky": "node ./node_modules/husky/lib/bin.js"
   },
   "browserslist": {
     "production": [
@@ -45,6 +43,22 @@
     "eslint-plugin-jsx-a11y": "^6.5.1",
     "eslint-plugin-react": "^7.28.0",
     "eslint-plugin-react-hooks": "^4.3.0",
+    "husky": "^8.0.0",
+    "lint-staged": "^13.0.3",
     "prettier": "2.7.1"
+  },
+  "prettier": {
+    "tabWidth": 2,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "all",
+    "printWidth": 120,
+    "jsxBracketSameLine": false,
+    "endOfLine": "lf"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "npm run lint:fix"
+    ]
   }
 }
